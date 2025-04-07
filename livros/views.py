@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
-from .serializers import LivroSerializers
+from .serializers import LivroSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Livro
@@ -14,10 +14,10 @@ def listar_livro(request):
 def read_livros(request):
     if request.method == 'GET' :
         livros = Livro.objects.all()
-        serializer = LivroSerializers (livros, many = True)
+        serializer = LivroSerializer (livros, many = True)
         return Response(serializer.data)
     if request.method == 'POST':
-        serializer = LivroSerializers(data = request.data, many=isinstance(request.data, list))
+        serializer = LivroSerializer(data = request.data, many=isinstance(request.data, list))
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
