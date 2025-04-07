@@ -3,4 +3,4 @@ from .models import Livro
 
 def listar_livro(request):
     listar = Livro.objects.all()
-    return render(request, 'biblioteca/livros.html', {'listar': listar})
+    return render(request, 'livros.html', {'listar': listar})
