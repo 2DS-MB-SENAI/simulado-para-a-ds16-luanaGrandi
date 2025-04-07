@@ -8,13 +8,16 @@
 <body>
     <h1>Bem vindo a Biblioteca</h1>
     <h2>listagem dos livros</h2>
-
-    {% for i in listar %}
+    
+    <ul>
+        {% for i in livros %}
         <li>
             <p>{{i.titulo}}</p>
             <p>{{i.autor}}</p>
             <p>{{i.paginas}}</p>
         </li>
     {% endfor %}
+    </ul>
+    
 </body>
 </html>
